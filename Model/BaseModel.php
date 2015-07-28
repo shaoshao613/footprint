@@ -28,6 +28,8 @@ class FootPrint{
 }class Regular{
 	function __construct($array)
 	{
+		if(!isset($array))
+			return;
 		$this->id = $array['id'];
 		$this->host = $array['host'];
 		$this->threshold = $array['threshold'];
