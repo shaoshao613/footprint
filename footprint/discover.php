@@ -18,7 +18,7 @@ if(isset($_POST['size']))
 else
 	$size=30;
 
-$sql="SELECT *,ft.id as footprintId FROM footprint ft inner join foot f WHERE ft.footId=f.id order by timestamp desc limit {$from},{$size}";
+$sql="SELECT *,ft.id as footprintId FROM footprint ft inner join foot f WHERE ft.footId=f.id order by `time` desc,`like` desc,`timestamp` desc limit {$from},{$size}";
 $foot_array=$mysql->query_array($sql);
 foreach($foot_array as $v){
 	$footprint=new FootPrint($v);

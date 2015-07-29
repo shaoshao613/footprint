@@ -5,7 +5,10 @@
  * Date: 15/7/27
  * Time: 下午10:02
  */
-$_GET['token']=11233;
+ini_set('display_errors',1);            //错误信息
+ini_set('display_startup_errors',1);    //php启动错误信息
+error_reporting(-1);                    //打印出所有的 错误信息
+ini_set('error_log', dirname(__FILE__) . '/error_log.txt');
 include "../Visitor.php";
 $userId=getUserId();
 $mysql=new Mysql();
@@ -18,7 +21,8 @@ $mysql=new Mysql();
 //$regular->host="http://www.jd.com/";
 //$regular->threshold=10000;
 //$regulars[]=$regular;
-$regular=json_encode($_POST['data']);
+//var_dump($_POST['data']);
+$regulars=json_decode($_POST['data']);
 $myMemcache=new MyMemcache();
 foreach($regulars as $item){
 	$key=$item->threshold."_".$item->host;

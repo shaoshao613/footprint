@@ -100,7 +100,7 @@ if($footprintId){
 }else{
 	$mysql->insert("footprint", "$key",   "$value");
 	$footprintId=mysql_insert_id();
-	echo $_GET['userId']."foot:".$_GET['footId'];
+	//echo $_GET['userId']."foot:".$_GET['footId'];
 	$myMemcache->set($_GET['userId']."foot:".$_GET['footId'],$footprintId);
 }
 

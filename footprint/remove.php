@@ -20,7 +20,7 @@ foreach ($KeyList as $k => $v) {
 		}
 }
 $mysql=new Mysql();
-$result=$mysql->select("*","footprint","`id`","'{$_GET['footprintId']}'");
+$result=$mysql->select("*","footprint","`footId`","'{$_GET['footprintId']}'");
 if($result){
 	if($result['userId']==$_GET['userId']){
 		$myMemcache=new MyMemcache();
@@ -44,6 +44,12 @@ if($result){
 		]);
 		die;
 	}
+}
+else{
+    echo json_encode([
+        ok => 0,
+        error => "footId not exsit",
+    ]);
 }
 
 

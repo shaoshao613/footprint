@@ -45,7 +45,7 @@ if(!$result||$result['password']!=$_POST['password']){
 	$myMemcache->set($token,$userId,$expireTime);
 	$myMemcache->close();
 	$user=[
-		userId => $userId,
+		userId =>(int)($userId),
 		userName => $userName,
 		token => $token,
 		expireTime => $expireTime,
